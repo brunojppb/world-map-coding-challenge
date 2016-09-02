@@ -17,19 +17,17 @@ class ChallengeViewController: UIViewController {
     var polygons = [Polygon]()
     var scrollView: UIScrollView!
     var mapView: UIView!
-    // create an offset to the map that will be displayed.
+    // An offset to the map that will be displayed.
     // given that the points have negative values and we will draw
-    // the map starting from (x: 0,y: 0), we need to add an offset for each axis.
+    // the map starting from (x: 0, y: 0), we need to add an offset for each axis.
     var xOffset: Float!
     var yOffset: Float!
     
-    // Define the width and height of the map based on the bounding box
+    // Define the width and height of the map 
+    // based on the bounding box from GEOJSON file
     var mapViewWidth: Float!
     var mapViewHeight: Float!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -79,7 +77,7 @@ class ChallengeViewController: UIViewController {
             }
         }
         
-        // Creates the map view based on the GEOJSON Values
+        // Creates the map view based on the GEOJSON bbox values
         self.setupMapView()
         
         // Draws each polygon on the map view
@@ -97,9 +95,10 @@ class ChallengeViewController: UIViewController {
         self.scrollView.delegate = self
         self.scrollView.bounces = true
         self.scrollView.alwaysBounceHorizontal = true
-        self.scrollView.minimumZoomScale = 0.01
+        self.scrollView.minimumZoomScale = 0.19
         self.scrollView.maximumZoomScale = 3.0
         self.scrollView.zoomScale = 2.0
+        self.view.addSubview(self.scrollView)
     }
     
     func setupMapView() {
@@ -107,11 +106,8 @@ class ChallengeViewController: UIViewController {
         self.mapView = UIView(frame: frame)
         self.scrollView.contentSize = self.mapView.bounds.size
         self.scrollView.addSubview(mapView)
-        self.view.addSubview(self.scrollView)
-        // Add an offset to see part of the map at first
+        // Add an offset to see part of the map on startup
         self.scrollView.contentOffset = CGPointMake(self.mapView.bounds.size.width/2, self.mapView.bounds.size.height/2)
-        self.mapView.layer.borderColor = UIColor.redColor().CGColor
-        self.mapView.layer.borderWidth = 5.0;
     }
     
     func drawPolygonOnMapView(polygon: Polygon) {
@@ -124,11 +120,15 @@ class ChallengeViewController: UIViewController {
         let composablePath = UIBezierPath()
         
         for coordinatesCollection in polygon.coordinates {
-            // Create
+            // Creates a path that will compose the country representation
             let path = UIBezierPath()
-            for (index, coordinates) in coordinatesCollection.enumerate(){
-                let x = CGFloat((coordinates.long / WorldMap.scale)+self.xOffset)
-                let y = CGFloat(((coordinates.lat * -1) / WorldMap.scale)+self.yOffset)
+            for (index, coordinates) in coordinatesCollection.enumerate() {
+                let x = CGFloat((coordinates.long / WorldMap.scale) + self.xOffset)
+                // The iOS coordinate system has its origin at the upper left of the drawing area, 
+                // and positive values extend down and to the right from it.
+                // Given that the GEOJSON Y axis is meant to be the other way around
+                // we need to multiply by -1, otherwise the map will be upside down.
+                let y = CGFloat(((coordinates.lat * -1) / WorldMap.scale) + self.yOffset)
                 if index == 0 {
                     path.moveToPoint(CGPointMake(x, y))
                 } else {
@@ -139,7 +139,9 @@ class ChallengeViewController: UIViewController {
             composablePath.appendPath(path)
         }
         
-        // Render the layer as a bitmap to improve performance
+        // Drawing the layer as a vector is expensive.
+        // To improve performance, enable rasterization.
+        // Rendering the layer as a bitmap.
         shape.shouldRasterize = true
         shape.rasterizationScale = 0.70
         shape.allowsEdgeAntialiasing = false
