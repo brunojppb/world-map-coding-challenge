@@ -85,6 +85,11 @@ class ChallengeViewController: UIViewController {
             self.drawPolygonOnMapView(polygon)
         }
         
+        // A little animation to show the map
+        UIView.animateWithDuration(0.4) { 
+            self.mapView.layer.opacity = 1.0
+        }
+        
     }
     
     func setupScrollView() {
@@ -96,7 +101,6 @@ class ChallengeViewController: UIViewController {
         self.scrollView.alwaysBounceHorizontal = true
         self.scrollView.minimumZoomScale = 0.19
         self.scrollView.maximumZoomScale = 3.0
-        self.scrollView.zoomScale = 2.0
         self.view.addSubview(self.scrollView)
     }
     
@@ -107,6 +111,8 @@ class ChallengeViewController: UIViewController {
         self.scrollView.addSubview(mapView)
         // Add an offset to see part of the map on startup
         self.scrollView.contentOffset = CGPointMake(self.mapView.bounds.size.width/2, self.mapView.bounds.size.height/2)
+        // Hide the map to show with a animation later
+        self.mapView.layer.opacity = 0.0
     }
     
     func drawPolygonOnMapView(polygon: Polygon) {
@@ -142,7 +148,7 @@ class ChallengeViewController: UIViewController {
         // To improve performance, enable rasterization.
         // Rendering the layer as a bitmap.
         shape.shouldRasterize = true
-        shape.rasterizationScale = 1.0
+        shape.rasterizationScale = 0.5
         shape.allowsEdgeAntialiasing = false
         
         composablePath.closePath()

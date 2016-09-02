@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1569C6B11D7A4770004C3E47 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569C6B01D7A4770004C3E47 /* logo.png */; };
+		1569C6B21D7A4770004C3E47 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1569C6B01D7A4770004C3E47 /* logo.png */; };
 		15F0AD6D1D79ED9F00A33960 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0AD6C1D79ED9F00A33960 /* AppDelegate.swift */; };
 		15F0AD6F1D79ED9F00A33960 /* ChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0AD6E1D79ED9F00A33960 /* ChallengeViewController.swift */; };
 		15F0AD721D79ED9F00A33960 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F0AD701D79ED9F00A33960 /* Main.storyboard */; };
@@ -23,8 +25,6 @@
 		15F0ADA21D79FA6A00A33960 /* GEOJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0ADA01D79FA6A00A33960 /* GEOJSONParser.swift */; };
 		15F0ADA41D79FECB00A33960 /* UIColor+withRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0ADA31D79FECB00A33960 /* UIColor+withRGB.swift */; };
 		15F0ADA51D79FECB00A33960 /* UIColor+withRGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F0ADA31D79FECB00A33960 /* UIColor+withRGB.swift */; };
-		15F0ADAA1D7A28E900A33960 /* journi.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0ADA91D7A28E900A33960 /* journi.png */; };
-		15F0ADAB1D7A28E900A33960 /* journi.png in Resources */ = {isa = PBXBuildFile; fileRef = 15F0ADA91D7A28E900A33960 /* journi.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1569C6B01D7A4770004C3E47 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		15F0AD691D79ED9F00A33960 /* JourniChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JourniChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F0AD6C1D79ED9F00A33960 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15F0AD6E1D79ED9F00A33960 /* ChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewController.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		15F0AD9A1D79F11100A33960 /* Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
 		15F0ADA01D79FA6A00A33960 /* GEOJSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GEOJSONParser.swift; sourceTree = "<group>"; };
 		15F0ADA31D79FECB00A33960 /* UIColor+withRGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+withRGB.swift"; sourceTree = "<group>"; };
-		15F0ADA91D7A28E900A33960 /* journi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = journi.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 				15F0AD751D79ED9F00A33960 /* LaunchScreen.storyboard */,
 				15F0AD781D79ED9F00A33960 /* Info.plist */,
 				15F0AD941D79F04500A33960 /* countries_small.geojson */,
-				15F0ADA91D7A28E900A33960 /* journi.png */,
+				1569C6B01D7A4770004C3E47 /* logo.png */,
 			);
 			path = JourniChallenge;
 			sourceTree = "<group>";
@@ -226,8 +226,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				15F0AD771D79ED9F00A33960 /* LaunchScreen.storyboard in Resources */,
+				1569C6B11D7A4770004C3E47 /* logo.png in Resources */,
 				15F0AD741D79ED9F00A33960 /* Assets.xcassets in Resources */,
-				15F0ADAA1D7A28E900A33960 /* journi.png in Resources */,
 				15F0AD951D79F04500A33960 /* countries_small.geojson in Resources */,
 				15F0AD721D79ED9F00A33960 /* Main.storyboard in Resources */,
 			);
@@ -237,7 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15F0ADAB1D7A28E900A33960 /* journi.png in Resources */,
+				1569C6B21D7A4770004C3E47 /* logo.png in Resources */,
 				15F0AD961D79F04500A33960 /* countries_small.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +448,7 @@
 				15F0AD881D79ED9F00A33960 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15F0AD891D79ED9F00A33960 /* Build configuration list for PBXNativeTarget "JourniChallengeTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +457,7 @@
 				15F0AD8B1D79ED9F00A33960 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
