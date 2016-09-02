@@ -91,7 +91,6 @@ class ChallengeViewController: UIViewController {
         // Setup the ScrollView
         self.scrollView = UIScrollView(frame: self.view.bounds)
         self.scrollView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        self.scrollView.backgroundColor = UIColor.withRGB(163, green: 204, blue: 255)
         self.scrollView.delegate = self
         self.scrollView.bounces = true
         self.scrollView.alwaysBounceHorizontal = true
@@ -114,8 +113,8 @@ class ChallengeViewController: UIViewController {
         let shape = CAShapeLayer()
         shape.opacity = 0.9
         shape.lineWidth = 2
-        shape.strokeColor = UIColor.darkGrayColor().CGColor
-        shape.fillColor = UIColor.withRGB(216, green: 230, blue: 211).CGColor
+        shape.strokeColor = UIColor.whiteColor().CGColor
+        shape.fillColor = UIColor.withRGB(68, green: 68, blue: 68).CGColor
         
         let composablePath = UIBezierPath()
         
@@ -143,7 +142,7 @@ class ChallengeViewController: UIViewController {
         // To improve performance, enable rasterization.
         // Rendering the layer as a bitmap.
         shape.shouldRasterize = true
-        shape.rasterizationScale = 0.70
+        shape.rasterizationScale = 1.0
         shape.allowsEdgeAntialiasing = false
         
         composablePath.closePath()
